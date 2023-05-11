@@ -1,6 +1,7 @@
 import { useState } from "react"
 
 export const Counter = () => {
+    // [첫번째 인자: 변수, 두번째 인자: 함수]
     const [count, setCount] = useState(0)
     const [value, setValue] = useState(0)
 
