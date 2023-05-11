@@ -37,3 +37,15 @@ export const Counter = () => {
 ### useState 문제점
 함수형 component로 구현했을 때, 리랜더링이 발동되면 안에 들어가있는 코드들
 상태 혹은 함수 혹은 변수들이 다시 실행된다.
+
+
+### useCallback
+- 함수를 재실행하고 싶지 않을 때 사용
+```jsx
+useCallback(function값, [상태]) => function값
+```
+첫번째 인자: function값
+두번째 인자: 상태
+return: function값
+
+### useMemo

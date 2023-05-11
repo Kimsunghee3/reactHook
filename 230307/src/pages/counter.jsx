@@ -3,6 +3,7 @@ import { useState } from "react"
 export const Counter = () => {
     const [count, setCount] = useState(0)
     const [value, setValue] = useState(0)
+
     const increment = () => {
         setCount(count + 1)
     }
@@ -11,6 +12,7 @@ export const Counter = () => {
     }
 
     const view = () => {
+        // 랜더가 될 때마다 실행됨, return에서 view함수를 호출해주고 있기 때문
         console.log("실행됨?")
         return count
     }
@@ -18,12 +20,12 @@ export const Counter = () => {
     return(
         <>
             <h2>{view()}</h2>
-            <button> {increment} </button>
-            <button> {decrement} </button>
-            <h2>{value()}</h2>
+            <button onClick={increment}> + </button>
+            <button onClick={decrement}> - </button>
+            <h2>{value}</h2>
             <button onClick={() => {
                 setValue(value + 1)
-            }}></button>
+            }}> + </button>
         </>
     )
 }
