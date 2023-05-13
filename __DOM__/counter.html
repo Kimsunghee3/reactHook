@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScriptCount</title>
+</head>
+<body>
+    <h2> count </h2>
+    <p id="result"> </p>
+    <input onclick="clickPlus()" class="plus" type="button" value="+" />
+    <input onclick="clickMinus()" class="minus" type="button" value="-" />
+</body>
+<script>
+    let number = 0
+    
+    const clickPlus = () => {
+        number = parseInt(number) + 1
+        const increment = document.querySelector(".plus")
+        console.log('증가:', number)
+        result.innerText = number
+    }
+    
+
+    const clickMinus = () => {
+        number = parseInt(number) - 1
+        const decrement = document.querySelector(".minus")
+        console.log("감소:", number)
+        result.innerText = number
+    }
+</script>
+</html>

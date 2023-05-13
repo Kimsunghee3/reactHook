@@ -13,6 +13,7 @@ export const TwoCounter = () => {
 
     return(
         <>
+        <p>hello world</p>
             <div>
                 <h2>{count}</h2>
                 <button onClick={increment}> + </button>
