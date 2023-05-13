@@ -15,7 +15,7 @@ BOM은 브라우저객체모델이라고 하며, JavaScript를 통해 브라우�
 최상위 객체인 window아래에 존재한다. 
 
 
-### widow
+### window
 변수와 함수를 선언할 때 window를 붙이지 않는데, window는 전역 객체이므로 페이지
 내에 있는 모든 객체를 다 포함하고 있기 때문에 window는 그냥 생략이 가능한 특징이 있다.
 
@@ -96,14 +96,14 @@ querySelectorAll은 특정 CSS 선택자를 가진 모든 요소를 `배열`로 
 
 
 ### JavaScript에서 이벤트를 처리하는 방법 3가지
-1. HTML요소에 직접 이벤트 속성을 설정
+> # 1. HTML요소에 직접 이벤트 속성을 설정
 HTML상에서 함수를 실행하라고 명시해주는 방식이다
 이벤트를 단 하나 밖에 지정할 수 없다.
 ```html
 <input type="button" onClick="buttonClick()" />
 ```
 
-2. DOM요소 객체의 이벤트 처리기 프로퍼티에 설정
+> # 2. DOM요소 객체의 이벤트 처리기 프로퍼티에 설정
 DOM을 이용해 요소를 선택하고, 변수를 이벤트 처리기의 프로퍼티로 사용한다.
 script와 HTML이 분리된 코드이며, 특정 요소의 특정 이벤트에 대해서 이벤트 처리기를
 단 하나만 등록할 수 있다.
@@ -112,7 +112,9 @@ const btn = document.getElementById("button")
 btn.onClick = buttonClick()
 ```
 
-3. addEventListener메서드 사용
+<br />
+
+> # 3. addEventListener메서드 사용
 같은 요소에 같은 이벤트를 여러 등록할 수 있다.
 위의 두 방법보다 addEventListener를 사용하는 것이 가장 좋다!!
 ```html
@@ -127,6 +129,8 @@ for(let i=0; i<count; i++){
 ```
 
 ### addEventListener()
+<br />
+
 addEventListener는 DOM객체에서 이벤트가 발생할 경우 해당 이벤트 처리핸들러를 추가할 수 있는 object이다.
 특정DOM에 JavaScript 이벤트가 발생할 때 특정 함수를 호출한다.
 여러개의 이벤트 핸들러를 동작할 수 있다.
@@ -187,3 +191,90 @@ getElementsByClassName(class명)
     document.getElementsByClassName("cover")
 </script>
 ```
+
+### 깊은 복사
+
+### 얕은 복사
+
+### Event
+일반적인 프로그래밍언어에서 이벤트는 사용자의 동작 혹은 프로그램에서 발생하는 특정한 상황(사건)을 의미한다.
+웹페이지에서 마우스를 클릭했을 때, 키를 입력했을 때, 특정 요소에 포커스가 이동했을 때 어떤 사건을 발생시키는 것이다.
+이벤트는 일반적으로 그에 맞는 반응이 있어야한다.
+따라서 이벤트는 일반적으로 함수로 연결되며 해당 함수는
+이벤트가 발생하기 전에는 실행되지 않다가 이벤트가 발생되지 않으면 실행된다.
+이 함수를 `EventHandler`라 하며 이벤트에 대응하는 처리를 한다.
+-> 사용자의 동작들이 `Event`를 발생시키며, 이벤트가 발생했다는 것은 웹페이지에서 특정 동작이 발생하여 웹 브라우저가 그 사실을 알려주는 것을 의미한다.
+
+
+### Event Handler
+웹 페이지에서 수많은 이벤트가 계속해서 발생한다.
+특정 요소에서 발생하는 이벤트를 처리하기 위해서는 `Event Handler`라는 함수를 작성하여 연결해야 한다.
+Event Handler가 연결된 특정 요소에서 지정된 타입의 Event가 발생하면, 웹브라우저는 연결된 Event Handler를 실행한다. Event Handler 함수는 Event객체를 인수로 전달 받을 수 있다.
+이렇게 전달받은 Event객체를 이용하여 이벤트의 성질을 결정하거나 이벤트의 기본 동작을 막을 수도 있다.
+-> 이벤트가 발생했을 때 처리를 담당하는 실행함수를 가리킨다. 
+
+
+### click
+JavaScript의 click함수는 사용자가 클릭하지 않아도 강제적으로 클릭 이벤트를 발생시키는 함수이다.
+```js
+// 기본형태
+.click()
+```
+
+### mouseover
+사용자가 마우스를 해당 element 바깥에서 안으로 옮겼을 때 발생한다. 
+```js
+<div onmouseover="chop()"></div>
+<script>
+    function chop(){
+        console.log("Hello Chop")
+    }
+</script>
+```
+
+
+### mouseout
+사용자가 마우스를 해당 객체 바깥으로 옮겼을 때 효과가 발생한다. 
+```html
+<div onmouseout="chopssal()"></div>
+<script>
+    const chopssal = () => {
+        return(
+            <>
+                console.log("hello world!")
+            </>
+        )
+    }
+</script>
+```
+
+### element에 직접넣기
+```js
+<button onClick="plus()"></button>
+<script>
+    const plus = () => {
+        console.log("hello")
+        return 
+    }
+</script>
+```
+
+
+
+### DOM속성으로 넣기
+```js
+const btn = document.querySelector(".btn")
+console.log(btn)
+
+btn.onclick = function () {
+    console.log("hello world!")
+    alert("hello world!")
+}
+
+const btn2 = document.querySelector(".btn")
+console.log(btn2)
+```
+
+
+
+### addEventListener
