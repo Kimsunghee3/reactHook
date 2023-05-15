@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+//     async function a(){
+//         const promise = new Promise((resolve, reject) => {
+//             setTimeout(() => {
+//                 resolve("완료!!")
+//             }, 1000);
+//         })
+
+//         const result = await promise
+
+//         console.log(result)
+//     }
+
+// a()
+
+function fetchAuthorName(postId){
+    return fetch(`https://google.com`)
+    .then((response) => response.json())
+    .then((post) => post.userId)
+    .then((userId) => {
+        return fetch("https://naver.com")
+        .then((response) => {
+            response.json()
+        })
+        .then((user) => user.name)
+    })
+}
+fetchAuthorName(1).then((name) => console.log("name:", name))
+
+
+fetch("http://naver.com")
+    .then(response => response.json())
+    .then(data => fetch("https://naver.com"))
+    .then(response => response.json())
+    .then(data => fetch("https://google.com"))
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error))
+</script>
+</html>

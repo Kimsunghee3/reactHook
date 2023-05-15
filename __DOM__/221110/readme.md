@@ -48,6 +48,10 @@ timer를 호출한다. 브라우저가 제공하는 API로 DOM, AJAX, setTimeout
 - event Loop: call Stack과 callback Queue를 감시한다.
 call Stack이 비어있을 경우, callback Queue에서함수를 꺼내 call Stack에 추가한다.
 
+### JavaScript 비동기처리방식
+- callback
+- promise
+- async & await
 
 ### promise 객체
 promise는 자바스크립트에서 제공하는 비동기를 간편하게 처리할 수 있게 도와주는 객체이다.
@@ -56,6 +60,7 @@ promise생성자 안에 두 개의 매개변수를 가진 콜백함수를 넣게
 promise는 코드에서 바로 값을 return 하지 않는 대신 promise를 return하여
 최종적으로 나중에 값을 제공하는 것을 뜻한다.
 -> 성공했을 때는 resolve 함수를 호출하고, 실패했을 때는 reject함수를 호출한다.
+
 * executor: promise생성자 안에 들어가는 콜백함수를 executor라고 부른다.
 ```js
 const promise = new Promise((resolve, reject) => {
@@ -136,6 +141,85 @@ promise.then(
     // callback 작업을 마치고 무조건 실행되는 finally(생략가능)
 )
 ```
+
+### Callback Hell, Promise Hell
+Callback Hell의 발생으로 promise객체를 사용했으나 promise도 마찬가지로
+Promise Hell이 발생한다. Callback Hell은 코드가 활처럼 굽어 보기어려워지고,
+Promise Hell도 then핸들러 남용으로 구현 의도를 파악할 수 없다.
+```js
+// Callback Hell
+getA(function (x){
+    getB(x, function(y){
+        getC(y, function(z){
+            ...
+        })
+    })
+})
+
+// Promise Hell
+fetch("http://naver.com")
+    .then(response => response.json())
+    .then(data => fetch("https://naver.com"))
+    .then(response => response.json())
+    .then(data => fetch("https://google.com"))
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error))
+```
+
+### async, await
+async, await문법을 사용하면 promise를 편리하게 사용할 수 있다.
+기존의 비동기처리방식인 콜백함수와 프로미스의 단점을 보완해준다.
+function앞에 async를 붙이면 해당 함수는 항상 promise를 반환한다.
+
+### async
+```js
+// 기본형태
+async function a(){
+    return    
+}
+
+// function앞에 `async`를 붙이면 해당 함수는 항상 promise를 반환한다.
+// promise가 아닌 값을 반환하더라도 이행 상태의 resolved promise로 값을 감싸
+// 이행된 promise가 반환되도록한다.
+
+async function promise(){
+    return "hello"
+}
+async가 붙은 함수는 promise를 반환하고 promise가 아닌 것은 promise가 아닌 것은 promise로 감싸 반환한다.
+```
+
+### await
+JavaScript는 await키워드를 만나면 promise가 처리될 때까지 기다린다.
+결과는 그 이후 반환된다. await은 async함수 안에서만 동작한다.
+```js
+async function a(){
+        const promise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("완료!!")
+            }, 1000);
+        })
+
+        const result = await promise
+
+        alert(result)
+    }
+
+a()
+```
+
+### throw new Error
+JavaScript에서 error라고 인식하지 않아도 내가 생성한 함수의 규칙과
+어긋나 에러처리를 하고 싶은 경우에 사용한다.(직접 에러를 발생시키고 싶을 때 사용한다.)
+Error생성자와 throw구문을 사용해서 프로그래머가 직접 에러를 발생시킬 수 있다.
+throw 이후에 코드는 실행되지 않기 때문에 return을 추가할 필요는 없다!!
+```js
+const promise = new Promise((resolve, reject) => {
+    throw new Error("에러발생")
+}).catch(alert)
+```
+
+### fetch
 
 ### try catch
 
