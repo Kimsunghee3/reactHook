@@ -350,19 +350,24 @@ EventListener가 이벤트 객체를 전달받는 방법 3가지
 이벤트의 이름을 반환
 
 # clientX
-이벤트가 발생한 X 좌표값을 반환
+이벤트가 발생한 X 좌표값을 반환(브라우저 기준)
 
 # clientY
-이벤트가 발생한 Y 좌표값을 반환
+이벤트가 발생한 Y 좌표값을 반환(브라우저 기준)
 
-- screenX
+# screenX
+이벤트가 발생한 X 좌표값을 반환(스크린 기준)
 
-- screenY
+# screenY
+이벤트가 발생한 Y좌표값을 반환(스크린 기준)
 
-- button
+# button
+마우스 왼쪽, 가운데, 오른쪽 버튼값을 반환
+# altKey
+alt키가 눌러졌을 때 true값을 반환
+# ctrlKey
+ctrl키가 눌러졌을 때 true값을 반환
+# shiftKey
+shift키가 true값을 반환
 
-- altKey
 
-- ctrlKey
-
-- shiftKey
