@@ -6,11 +6,6 @@ const form = document.querySelector("#loginForm")
 form.addEventListener("submit", submitHandler)
 ```
 
-### keyup
-키보드 이벤트는 사용자가 키를 누르거나 키를 놓을 때 발생한다.
-키를 누를 때는 keydown타입의 이벤트가 발생하고 키를 놓을 때는 keyup타입의 이벤트가 발생한다.
-
-
 ### focus
 엔터를 누르면 focus()메서드가 실행되어 바로 다음 입력창 요소로 포커싱하여 연달아 바로 입력할 수 있게 하는 기법이다.
 ```js
@@ -79,6 +74,52 @@ const a = document.querySelector("a")
 
 ### append
 append() 메소드는 선택된 요소의 마지막에 새로운 HTML요소나 콘텐츠를 추가한다.
-```js
+```html
+<ul id="userList">
+    <li> 첫번째 아이템 </li>
+    <li> 두번째 아이템 </li>
+</ul>
 
+<script> 
+    const userList = document.querySelector("#userList")
+
+    // 두번째 li뒤에 li태그가 추가된다.
+    userList.append(li)
+</script>
+``` 
+
+### DOMContentLoaded
+브라우저가 HTML을 전부 읽고 DOM트리를 완성하는 즉시 발생한다.   
+DOM이 생성되기 전 DOM을 조작하는 JavaScript코드가 실행되어 원하지 않은 결과를 내는 것을 막을 수 있다. 
+```js
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Hello World!!")
+})
 ```
+
+### onload
+문서의 모든 콘텐츠가 로드되었을 때 실행된다.
+DOMContentLoaded가 onload보다 먼저 실행된다.
+```js
+document.onload() = function a(){}
+```
+
+### keyup
+키보드 이벤트는 사용자가 키를 누르거나 키를 놓을 때 발생한다.
+키를 누를 때는 keydown타입의 이벤트가 발생하고 키를 놓을 때는 keyup타입의 이벤트가 발생한다.
+```js
+const keyup = document.querySelector("#keyup").keyup()
+```
+
+### keydown
+키보드를 누를 때 실행되며, 계속 누르고 있는 경우에도 계속 실행된다.
+```js
+const keydown = document.querySelector("#keydown").keydown()
+```
+
+### keypress
+키보드를 누를 때 실행되며 계속 누르고있는 경우에도 계속 실행된다.
+```js
+const keypress = document.querySelector("#keypress").keypress()
+```
+
