@@ -248,6 +248,11 @@ JavaScript의 click함수는 사용자가 클릭하지 않아도 강제적으로
 </script>
 ```
 
+### JavaScript Event처리방법 3가지
+01. HTML 요소의 속성으로 등록: 이벤트를 단 하나 밖에 지정할 수 없는 단점이 있다.
+02. DOM 요소의 프로퍼티로 등록: 이벤트를 단 하나 밖에 지정할 수 없는 단점이 있다.
+03. 여러 개의 이벤트를 등록할 수 있다.
+
 ### element에 직접넣기
 ```js
 <button onClick="plus()"></button>
@@ -258,8 +263,6 @@ JavaScript의 click함수는 사용자가 클릭하지 않아도 강제적으로
     }
 </script>
 ```
-
-
 
 ### DOM속성으로 넣기
 ```js
@@ -275,6 +278,91 @@ const btn2 = document.querySelector(".btn")
 console.log(btn2)
 ```
 
-
-
 ### addEventListener
+여러개의 이벤트를 등록할 수 있다.
+```js
+<input type = "button" id="btn" value="click">
+const chop = document.querySelector("input")
+chop.addEventListener("event", 함수값)
+```
+
+
+### removeEventListener
+JavaScript에서 addEventListener를 사용해 이벤트를 추가한 경우 반대로 `removeEventListener`를 사용하여 제거할 수 있다.
+```js
+// 기본형태
+removeEventListener(이벤트종류, EventListener함수, 옵션: 선택)
+
+// 예제
+먼저 Event가 걸려 있는 요소에 접근하고, 요소로부터 Event 제거함수를 꺼내 실행한다.
+const ev = document.querySelector("div")
+ev.removeEventListener()
+
+// 하나의 요소에 두가지 이벤트가 적용되어있는데, 하나의 이벤트만 제거하고 싶은 경우
+<input id="chopBtn" type="button" value="+">
+const func1 = document.querySelector("#chopBtn")
+func1.addEventListener("click", )
+
+document.querySelector("#chopBtn").removeEventListener("click", )
+```
+
+```js
+const btn = document.querySelector('.btn')
+
+btn.removeEventListener()
+
+let a = 'hello world'
+Element.removeEventListener(이벤트명:string, 함수값:function)
+```
+
+### Event 객체
+DOM과 관련된 이벤트가 발생하면 관련 정보는 모두 event객체에 저장된다.
+이벤트가 객체란 이벤트가 일어나는 요소 그 자체를 의미한다. 이벤트는 해당 타입의 이벤트에 대한 상세 정보를 저장하고 있다.(이벤트가 발생하면 이벤트에 대한 정보를 가지고 있는 객체)
+모든 이벤트 객체는 이벤트의 타입을 나타내는 type프로퍼티와 이벤트의 대상을 나타내는 target프로퍼티를 가진다.
+이벤트 객체는 이벤트리스너가 호출될 때 인수로 전달된다. 이벤트가 발생하면, 이벤트 객체는 동적으로 생성되어 이벤트 핸들러에 인자로 암묵적으로 전달된다.
+이벤트가 발생하면 브라우저는 이벤트 객체라는 것을 만든다. 이벤트 객체에 이벤트에 관한 상세정보를 넣은 다음 핸들러에 인수 형태로 전달한다.
+
+
+EventListener가 이벤트 객체를 전달받는 방법 3가지
+01. 이름을 가진 EventListener 함수의 경우
+
+02. 익명 함수의 경우
+
+03. HTML 태그의 리스너 경우
+
+```js
+<input type="button" value="btn" id="a">
+
+<script>
+    const b = a.document.querySelector("a")
+    // 매개변수명은 이벤트 객체의 의미로 `e`, `event`를 많이 사용한다.
+    b.onclick = function alpha(e){
+        alert(event.type + event.currentTarget)
+    }
+</script>
+```
+
+주요속성
+# target
+이벤트를 발생시킨 객체를 반환
+
+# type
+이벤트의 이름을 반환
+
+# clientX
+이벤트가 발생한 X 좌표값을 반환
+
+# clientY
+이벤트가 발생한 Y 좌표값을 반환
+
+- screenX
+
+- screenY
+
+- button
+
+- altKey
+
+- ctrlKey
+
+- shiftKey

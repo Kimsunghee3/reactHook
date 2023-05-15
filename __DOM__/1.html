@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input class="btn" type="button" value="날 눌러 어서!!!">
+
+    <input type="button" id="target" value="button" />
+
+    <script>
+        var t = document.getElementById('target');
+        t.addEventListener('click', function(event){
+        alert('Hello world, '+event.target.value);
+        });
+        const btn = document.querySelector(".btn")
+        console.log("btn:", btn)
+
+        btn.onclick = function(){
+            console.log("출력잘됨!")
+
+            prompt("hello world!")
+        }
+
+        const btn2 = document.querySelector(".btn")
+
+    </script>
+</body>
+</html>
