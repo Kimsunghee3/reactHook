@@ -47,5 +47,20 @@ fetch("http://naver.com")
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error(error))
+
+async function A(){
+    const res = await fetch("http://naver.com")
+    const data = await res.json()
+
+    const res2 = await fetch("http://")
+    const data2 = await res2.json()
+
+    const res3 = await fetch("http://")
+    const data3 = await res3.json()
+
+    console.log(data3)
+}
+
+getData()
 </script>
 </html>

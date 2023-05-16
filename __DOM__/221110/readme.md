@@ -146,6 +146,8 @@ promise.then(
 Callback Hell의 발생으로 promise객체를 사용했으나 promise도 마찬가지로
 Promise Hell이 발생한다. Callback Hell은 코드가 활처럼 굽어 보기어려워지고,
 Promise Hell도 then핸들러 남용으로 구현 의도를 파악할 수 없다.
+async, await은 이런 문제들을 해결하기 위해 탄생하였으며, 가독성과 유지보수성을
+향상 시켜준다.
 ```js
 // Callback Hell
 getA(function (x){
@@ -165,12 +167,29 @@ fetch("http://naver.com")
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error(error))
+
+// async && await
+async function A(){
+    const res = await fetch("http://naver.com")
+    const data = await res.json()
+
+    const res2 = await fetch("http://")
+    const data2 = await res2.json()
+
+    const res3 = await fetch("http://")
+    const data3 = await res3.json()
+
+    console.log(data3)
+}
+
+getData()
 ```
 
 ### async, await
 async, await문법을 사용하면 promise를 편리하게 사용할 수 있다.
-기존의 비동기처리방식인 콜백함수와 프로미스의 단점을 보완해준다.
-function앞에 async를 붙이면 해당 함수는 항상 promise를 반환한다.
+function키워드 앞에 async를 붙여주고 비동기로 처리 될 부분에 await을
+붙여주면 된다. async는 return값으로 promise객체를 반환한다.
+
 
 ### async
 ```js
@@ -219,10 +238,143 @@ const promise = new Promise((resolve, reject) => {
 }).catch(alert)
 ```
 
-### fetch
+### 예외처리
+error발생하면 스크립트가 중단되고 에러가 중단되게 된다. 
+즉 오류가 발생하면 프로세스가 죽어버리기해 프로그래밍 언어들은 일반적으로 이러한 상황에 대처하기 위해 예외처리, Exception handling이란 장치들을
+마련해놨다. 보통 try catch명령어로 이루어져 있다.
 
 ### try catch
+먼저 try안의 코드가 실행되고 에러가 없다면 try안의 마지막코드까지 실행되고 catch블록은 건너뛴다. 
+에러가 있다면 try안 코드의 실행이 중단되고 catch(err)블록이 실행된다.
+변수 err에 상황에 대한 설명이 담긴 에러 객체를 포함한다.
+```js
+// 기본형태
+try{
+// code
+}catch(err){
+// error Handling
+}
+```
 
+### JSON
+JSON은 JavaScript Object Notation의 약자로서 데이터를 문자열의 형태로 나타내기 위해서 사용된다. JSON은 네트워크를 통해 서로 다른 시스템들이 데이터를 주고 받을 때 많이 사용된다.
+
+### JSON.stringify()
+JSON.stringify메소드는 인수로 전달받은 JavaScript객체를 문자열로 변환하여 반환한다.
+```js
+// 기본형태
+JSON.stringify(value)
+
+const chopssal = {
+    name: "chop", 
+    age: 24, 
+    weight: 165
+    }
+
+const info = JSON.stringify(chopssal)
+// {"name":"chop", "age":24, "weight":165}
+console.log(info)
+```
+### JSON.parse()
+인수로 전달받은 문자열을 JavaScript객체로 변환하여 반환한다.
+text에는 변환할 문자열은 전달한다. 해당 문자열은 `JSON형식`의 문자열이어야한다.
+JSON형식에 맞지 않는 문자열을 전달하면 JavaScript는 오류를 발생시킨다.
+```html
+// 기본형태
+JSON.parse(text)
+
+// string => JSON
+<body>
+    <p id="str">
+
+    </p>
+</body>
+<script>
+    const info = `{
+        "name": "chop", 
+        "height": 165, 
+        "age": 24
+    }`
+    const items = JSON.parse(info)
+    document.getElementById("str").innerHTML = items.name + "," + 
+    items.age
+</script>
+```
+
+
+### toJSON()
+JavaScript의 Date객체의 데이터를 JSON형식의 문자열로 변환하여 반환
+이 메소드는 Date.prototype객체에서만 사용할 수 있다.
+```html
+<body>
+    <p id="day"></p>
+</body>
+<script>
+    const date = new Date()
+    const change = date.to.JSON()
+
+    document.querySelector("#day").innerHTML = date + "<br />"
+    document.querySelector("#day").innerHTML += str
+</script>
+```
+
+### Date() 생성자
+new Date()를 호출하면 새로운 Date객체가 만들어진다
+인수를 전달하지 앟으면 현재 날짜와 시간을 가지는 인스턴스를 반환한다.
+```js
+const date = new Date()
+
+// date: 2023-05-16T05:13:35.704Z
+console.log(date)
+
+// 예제
+const date = new Date()
+console.log("date:", date)
+// date: 2023-05-16T05:13:35.704Z
+
+const change = date.toJSON()
+console.log("change:", change)
+// Tue May 16 2023 14:38:32 GMT+0900 (대한민국 표준시)
+
+const a = document.querySelector("#day").innerHTML = date + `<br />` + date
+console.log("a:", a)
+// const b = document.querySelector("#day").innerHTML += str
+// console.log("b:", b)
+```
+
+### 동기(synchronous)와 비동기(Asynchronous)
+동기방식은 서버에서 요청을 보냈을 때 응답이 돌아와야 다음 동작을 수행할 수 있다.
+즉 A작업이 모두 진행될 때까지 B작업은 대기해야한다.
+
+비동기방식은 반대로 요청을 보냈을 때 응답상태와 상관없이 다음 동작을 수행할 수 있다.
+즉 A작업이 시작하면 동시에 B작업이 실행된다.
+A작업은 결과값이 나오는대로 출력한다.
+```js
+console.log("1st")
+setTimeout(() => {
+    console.log("2nd")
+}, 0)
+console.log("3rd")
+```
+
+### Single Thread, Multi Thread
+Javascript의 메인 Thread인 이벤트루프가 single Thread이므로 JavaScript를 
+single Thread언어라고 부른다.
+하지만 이벤트 루프만 독립적으로 실행되지 않고 웹브라우저나 NodeJS같은 multi Thread환경에서 실행된다.
+-> JavaScript는 single Thread이지만, JavaScript런타임은 single Thread가 아니다.
+
+### fetch
+fetch함수는 HTTP response객체를 래핑한 promise 객체를 반환한다.
+따라서 프로미스의 후속 처리메서드인 then을 사용하여 resolve한 객체를 전달 받을 수 있다.(catch와 finally도 마찬가지이다.)
+
+### fetch함수로 http요청하기
+fetch함수에는 HTTP 요청을 전송할 URL, HTTP요청메서드, HTTP요청헤더, 페이로드 등을 설정한 객체를 전달한다. 단순히 원격 API에 있는 데이터를 가져올 때 쓰인다.
+fetch함수는 디폴트로 get방식으로 작동한다.
+```js
+fetch("http://")
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+```
 
 ### 깊은 복사
 
