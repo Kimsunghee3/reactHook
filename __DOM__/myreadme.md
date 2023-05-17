@@ -196,11 +196,6 @@ getElementsByClassName(class명)
     document.getElementsByClassName("cover")
 </script>
 ```
-
-### 깊은 복사
-
-### 얕은 복사
-
 ### Event
 일반적인 프로그래밍언어에서 이벤트는 사용자의 동작 혹은 프로그램에서 발생하는 특정한 상황(사건)을 의미한다.
 웹페이지에서 마우스를 클릭했을 때, 키를 입력했을 때, 특정 요소에 포커스가 이동했을 때 어떤 사건을 발생시키는 것이다.
