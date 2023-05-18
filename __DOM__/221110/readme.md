@@ -474,7 +474,15 @@ slice(start, [end])
 ```
 
 ### forEach
-
+forEach메서드는 배열의 요소를 반복하며 함수를 호출한다.
+기본적으로 배열에서 루프를 돌 때 사용한다.
+```js
+array.forEach(function(currentValue, index, arr))
+```
+> function(currentValue, index, arr): 배열의 각 항목에 대해 실행할 함수
+> currentValue: 배열의 값
+> index(선택사항): 현재 항목의 인덱스
+> arr(선택사항): 현재 항목의 배열 
 
 ### map
 
