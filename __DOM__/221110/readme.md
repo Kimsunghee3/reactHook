@@ -484,6 +484,99 @@ array.forEach(function(currentValue, index, arr))
 > index(선택사항): 현재 항목의 인덱스
 > arr(선택사항): 현재 항목의 배열 
 
+forEach 메서드는 myFunction 함수를 받아서 students배열의 각 항목을 표시한다.
+```js
+let students = ["john", "sara", "jack"]
+students.forEach(myFunction)
+
+function myFunction(item){
+    console.log(item) // john, sara, jack
+}
+```
+
+### 배열 항목 업데이트
+```js
+let students = ["john", "sara", "jack"]
+students.forEach(myFunction)
+
+function myFunction(item, index, arr){
+    arr[index] = `Hello` + item
+}
+
+console.log(students)
+// ['Hello john', 'Hello sara', 'Hello jack']
+```
+
+### 화살표 함수와 forEach()
+forEach메서드와 함께 화살표 함수를 사용할 수 있다.
+```js
+const students = ["john", "sara", "jack"]
+
+students.forEach(element => {
+    console.log(element)
+})
+// john, sara, jack
+```
+
+### set과 forEach()
+forEach메서드를 사용해 set항목을 루프 돌릴 수 있다.
+set객체는 등장한 중복을 제거한 값들을 집합이다.
+```js
+// set 객체 선언
+const set = new Set()
+
+// set 객체 사용
+> add: 특정 요소 추가 
+set객체에 주어진 값을 갖는 새로운 요소 추가
+// set.add(value)
+set.add(1) // set { 1 }
+set.add(5) // set { 5 }
+set.add('hi') // set { 1, 5, 'hi' }
+
+> has: 특정 요소 확인
+set객체에 주어진 값을 갖는 요소가 있는 지 확인
+// set.has(value)
+set.has(1) // true
+set.has(3) // false
+set.has('hi') // true
+
+> delete: 특정 요소 제거
+set객체에 주어진 값을 갖는 요소를 제거
+// set.delete(value)
+set.delete('hi') // set { 1, 5 }
+set.delete(1) // set { 5 }
+
+> clear: 모든 요소 제거
+set객체에서 모든 요소를 제거
+// set{ 1, 5, 'hi' }
+set.clear() // set{ }
+
+> size: 요소의 개수 반환
+set객체 내에 있는 요소들의 개수를 반환
+// set { 1, 5, 'hi' }
+set.size // 3
+```
+
+### set    
+set객체는 중복되지 않는 유일한 값들의 집합이다.
+set객체의 특서은 수학적 집합의 특성과 일치한다. set은 수학적 집합을 표현한 자료구조이다. set객체는 중복되지 않는 유일한 값들의 집합이다. 
+이를 통해 교집합, 합집합, 차집합, 여집합등을 구하는 것이 가능하다.
+set객체는 배열과 비슷하지만 차이가 있다.
+
+### set과 배열의 차이
+01. 동일한 값을 중복하여 포함할 수 없다.
+02. 요소 순서에 의미가 없다.
+03. 인덱스로 요소 접근이 불가능하다.
+
+
+### set객체 생성해보기
+```js
+const set = new Set()
+```
+
+### for loop를 forEach로 바꾸기
+
+
 ### map
 
 
