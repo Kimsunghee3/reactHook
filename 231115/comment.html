@@ -4,23 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>comment</title>
+    <title>👾 comment 👾</title>
     <link type="text/css" rel="stylesheet" href="./public/css/index.css">
-    <script type="text/javascript" src="./public/js/comment.js"></script>
 </head>
 <body>
-    <div class="commentWrapper">
-        <div class="commentCounter"> 댓글 0 </div>
-        <textarea onclick="clickContent()" class="commentContent" type="text" maxlength="200"> 댓글을 입력해주세요. </textarea>
-        <div class="submitWrapper">
-            <input onclick="click()" class="submitBtn" type="button" value="댓글 남기기" />
-        </div>
-        <div class="ment">
-            <p>댓글 달아!!!!!</p>
-        </div>
-        <div class="hamsterPic">
-            <img src="../img/hamster.png" alt="이미지를 불러올 수 없습니다.">
+    <div class="wallpaper">
+        <div class="commentWrapper">
+            <div id="result"> 댓글 </div>
+            <div id="addComment"> </div>
+            <textarea class="commentContent" type="text" maxlength="200"> 댓글을 입력해주세요. </textarea>
+            <div class="submitWrapper">
+                <input class="submitBtn" type="submit" value="댓글 남기기" />
+            </div>
+            <div class="ment">
+                <p>댓글 달아!!!!!</p>
+            </div>
+            <div class="hamsterPic">
+                <img src="../img/hamster.png" alt="이미지를 불러올 수 없습니다.">
+            </div>
         </div>
     </div>
 </body>
+<script type="text/javascript" src="./public/js/comment.js"></script>
 </html>

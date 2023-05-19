@@ -21,6 +21,11 @@ a {
     border-radius: 5px;
 }
 
+#result {
+    padding-left: 3px;
+    padding-top: 10px;
+}
+
 .commentCounter {
     padding-top: 20px;
 }
@@ -57,8 +62,7 @@ a {
 }
 
 .submitBtn:hover {
-    background-color: #fed166;
-    color: #ffffff;
+    background-color: #ffd569;
 }
 
 .ment {
