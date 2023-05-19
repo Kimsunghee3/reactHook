@@ -518,45 +518,6 @@ students.forEach(element => {
 // john, sara, jack
 ```
 
-### set과 forEach()
-forEach메서드를 사용해 set항목을 루프 돌릴 수 있다.
-set객체는 등장한 중복을 제거한 값들을 집합이다.
-```js
-// set 객체 선언
-const set = new Set()
-
-// set 객체 사용
-> add: 특정 요소 추가 
-set객체에 주어진 값을 갖는 새로운 요소 추가
-// set.add(value)
-set.add(1) // set { 1 }
-set.add(5) // set { 5 }
-set.add('hi') // set { 1, 5, 'hi' }
-
-> has: 특정 요소 확인
-set객체에 주어진 값을 갖는 요소가 있는 지 확인
-// set.has(value)
-set.has(1) // true
-set.has(3) // false
-set.has('hi') // true
-
-> delete: 특정 요소 제거
-set객체에 주어진 값을 갖는 요소를 제거
-// set.delete(value)
-set.delete('hi') // set { 1, 5 }
-set.delete(1) // set { 5 }
-
-> clear: 모든 요소 제거
-set객체에서 모든 요소를 제거
-// set{ 1, 5, 'hi' }
-set.clear() // set{ }
-
-> size: 요소의 개수 반환
-set객체 내에 있는 요소들의 개수를 반환
-// set { 1, 5, 'hi' }
-set.size // 3
-```
-
 ### set    
 set객체는 중복되지 않는 유일한 값들의 집합이다.
 set객체의 특서은 수학적 집합의 특성과 일치한다. set은 수학적 집합을 표현한 자료구조이다. set객체는 중복되지 않는 유일한 값들의 집합이다. 
@@ -570,15 +531,99 @@ set객체는 배열과 비슷하지만 차이가 있다.
 
 
 ### set객체 생성해보기
+set객체는 set생성자 함수로 생성한다.
+만약 인수를 전달하지 않으면 빈 set객체가 생성된다
 ```js
+// 기본형식
+// set의 값에는 배열이 들어간다.
+const set = new Set([])
+
+// example
+const chop = new Chop([1, 2, 3, 4, 5])
+// set(5){1, 2, 3, 4, 5}
+```
+### set과 forEach()
+forEach메서드를 사용해 set항목을 루프 돌릴 수 있다.
+set객체는 등장한 중복을 제거한 값들을 집합이다.
+```js
+// set 객체 선언
 const set = new Set()
+
+// set 객체 사용
+> add: 특정 요소 추가(중복된 값이 없을 경우에 값을 추가한다.)
+set객체에 주어진 값을 갖는 새로운 요소 추가
+// set.add(value)
+set.add(1) // set { 1 }
+set.add(5) // set { 5 }
+set.add('hi') // set { 1, 5, 'hi' }
+
+> has: 특정 요소 확인(값이 존재하는지 확인해준다.)
+set객체에 주어진 값을 갖는 요소가 있는 지 확인
+// set.has(value)
+set.has(1) // true
+set.has(3) // false
+set.has('hi') // true
+
+> delete: 특정 요소 제거(값을 삭제한다.)
+set객체에 주어진 값을 갖는 요소를 제거
+// set.delete(value)
+set.delete('hi') // set { 1, 5 }
+set.delete(1) // set { 5 }
+
+> clear: 모든 요소 제거(set내부의 모든 값을 삭제한다.)
+set객체에서 모든 요소를 제거
+// set{ 1, 5, 'hi' }
+set.clear() // set{ }
+
+> size: 요소의 개수 반환(값의 수를 확인해준다, length의 역할)
+set객체 내에 있는 요소들의 개수를 반환
+// set { 1, 5, 'hi' }
+set.size // 3
 ```
 
-### for loop를 forEach로 바꾸기
 
+### for loop를 forEach로 바꾸기
+```js
+// for
+const arrayItems = ['item1', 'item2', 'item3']
+const copyItems = []
+console.log(arrayItems[0].length)
+// .length 문자열의 길이
+// console.log(arrayItems.length)
+for(let i=0; i<arrayItems.length; i++){
+    copyItems.push(arrayItems[i])
+}
+
+console.log(copyItems)
+
+
+// forEach
+const set = new Set([1, 2, 3])
+
+    set.forEach(myFunction)
+
+    function myFunction(item){
+        console.log(item)
+    }
+```
 
 ### map
+map함수는 callback함수를 실행한 결과를 가지고 새로운 배열을 만들 때 사용한다. filter, forEach와 같은 구문이다.
+callbackFunction, thisArg 두개의 매개변수가 있고 callbackFunction은 currentValue, index, array 3개의 매개변수를 갖는다. 
+> currentValue: 배열 내 현재 값
+> index: 배열 내 현재 값의 인덱스
+> array: 현재 배열
+> thisArg: callbackFunction내에서 this로 사용될 값
+```js
+// 기본형태
+array.map(callbackFunction(currentValue, index, array), thisArg)
+```
 
+day라는 변수의 모든 값에 숫자를 추가하고 싶다면 map()함수를 이용하는 것이다.
+map함수는 모든 배열의 값에 function을 실행하는 method이다.
+```js
+const days = ["mon", "tue", "web", "thu", "fri"]
+```
 
 ### filter
 

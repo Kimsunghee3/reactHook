@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-image: url("img/grass.jpg");
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.commentWrapper {
+    width: 500px;
+    height: 180px;
+    margin: 150px auto;
+    border: 1px solid #a6a6a6;
+    padding-left: 20px;
+    border-radius: 5px;
+}
+
+.commentCounter {
+    padding-top: 20px;
+}
+
+.commentContent {
+    width: 450px;
+    height: 50px;
+    background: #e5ebf9;
+    margin: 10px 0;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 0.9rem;
+    color: #464646;
+    border: none;
+    border-radius: 5px;
+}
+
+.submitWrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 32px;
+}
+
+.submitBtn {
+    width: 80px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: none;
+    background: #feeec9;
+    
+}
+
+.submitBtn:hover {
+    background-color: #fed166;
+    color: #ffffff;
+}
+
+.ment {
+    padding-top: 70px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    border-radius: 10px solid #ffacac;
+}
+
+.hamsterPic {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-top: 10px;
+}
