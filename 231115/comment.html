@@ -12,10 +12,12 @@
         <div class="commentWrapper">
             <div id="result"> 댓글 </div>
             <div id="addComment"> </div>
-            <textarea class="commentContent" type="text" maxlength="200"> 댓글을 입력해주세요. </textarea>
-            <div class="submitWrapper">
-                <input class="submitBtn" type="submit" value="댓글 남기기" />
-            </div>
+            <form class="commentForm">
+                <input class="commentContent" type="text" placeholder="댓글을 입력해주세요." maxlength="200" />
+                <div class="submitWrapper">
+                    <button class="submitBtn" onclick="alert('저장되었습니다.')"> 댓글 남기기 </button>
+                </div>
+            </form>
             <div class="ment">
                 <p>댓글 달아!!!!!</p>
             </div>
@@ -25,5 +27,5 @@
         </div>
     </div>
 </body>
-<script type="text/javascript" src="./public/js/comment.js"></script>
+<script type="text/javascript" src="./public/js/comment2.js"></script>
 </html>
