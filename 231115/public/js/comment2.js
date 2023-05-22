@@ -5,17 +5,21 @@ const inputContent = document.querySelector(".commentContent").addEventListener(
     }
 })
 
+let arr = []
+
 const addContent = document.querySelector(".commentForm").onsubmit = (() => {
-    let data = new Array
-
-    function commentData(){
-        let content = document.querySelector(".commentContent").value 
-        data.push(content)
-
-        console.log(data)
-    }
+    let content = document.querySelector(".commentContent").value
+    arr.push(content)
+    // let data = new Array
     
-    return false
-})
-
-
+    // function commentData(){
+        //     let content = document.querySelector(".commentContent").value 
+        //     data.push(content)
+        
+        //     console.log(data)
+        // }
+        
+        return false
+    })
+    
+arr[0].innerTEXT

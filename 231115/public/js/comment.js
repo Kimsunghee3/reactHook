@@ -12,8 +12,6 @@ const commentContent = document.querySelector(".commentContent").addEventListene
     }
 })
 
-
-
 const setMouse = () => {
     const on = document.querySelector(".commentContent").value
     if(on == null || ""){
