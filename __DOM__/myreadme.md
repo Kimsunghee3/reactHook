@@ -516,6 +516,20 @@ function handleInputChange(event){
 ```
 
 ### e.target.value와 document.querySelector의 차이점
-사용목적
+>사용목적
 document.querySelector: 요소 자체를 선택하기 위해 사용
 e.target.value: 이벤트 핸들러 함수에서 이벤트가 발생한 요소의 값을 가져오기 위해 사용된다.
+
+>사용방법
+document.querySelector는 요소를 선택하고 그 값을 가져오는 두 단계를 거친다.
+먼저 원하는 요소를 선택한 다음 해당 요소의 value속성을 가져와야한다.
+반면에 e.target.value는 이벤트 객체(e)의 target속성을 통해 이벤트가 발생한 요소를 직접 접근하고
+해당 요소의 value속성을 바로 가져온다.
+
+따라서 사용자 입력 값을 가져오는 데 관련이 있는 경우 이벤트 핸들러 함수 내에서 e.target.value를 사용하는 것이 
+일반적으로 더 편리하고 직관적이다. 반면에 document.querySelector는 요소의 선택과 값을 가져오는 두 가지 작업을 별도로
+수행해야하므로 특정 요소를 명시적으로 선택해야 할 때 또는 DOM에서 값이 아닌 다른 속성이나 요소를 찾아야 할 떄 유용하다.
+
+=> document.querySelector와 e.target.value 모두 값의 획득에 사용될 수 있지만, document.querySelector는 `요소 선택`에
+더 중점을 두고 있고, e.target.value는 이벤트 핸들러 함수 내에서 이벤트가 발생한 `요소의 값`을 가져오는 데 특화되어 있다.
+
