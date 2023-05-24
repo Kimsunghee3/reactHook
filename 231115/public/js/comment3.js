@@ -19,4 +19,3 @@ function data(e){
     outputElement.innerText = ""
 
 }
-
