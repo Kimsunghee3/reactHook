@@ -2,24 +2,23 @@ const inputContent = document.querySelector(".commentContent").addEventListener(
     if(event.keyCode === 13){
     event.preventDefault()
     document.getElementById("myBtn").click()
+    saveContent()
     }
 })
 
+
 let arr = []
 
-const addContent = document.querySelector(".commentForm").onsubmit = (() => {
-    let content = document.querySelector(".commentContent").value
-    arr.push(content)
-    // let data = new Array
-    
-    // function commentData(){
-        //     let content = document.querySelector(".commentContent").value 
-        //     data.push(content)
-        
-        //     console.log(data)
-        // }
-        
-        return false
-    })
-    
-arr[0].innerTEXT
+// addEventListener("keypress", saveContent)
+
+function saveContent(){
+    const addContent = document.querySelector(".commentContent").value 
+    const myArr = arr.push(addContent)
+
+    for(let i=0; i<myArr.length; i++){
+        // arrComment.innerText = myArr[i]
+        console.log(myArr[i])
+    }
+}
+
+

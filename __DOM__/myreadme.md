@@ -494,3 +494,28 @@ const keydown = document.querySelector("#keydown").keydown()
 ```js
 const keypress = document.querySelector("#keypress").keypress()
 ```
+
+### e.target.value
+e.target.value는 주로 폼요소에서 사용자의 입력 값을 가져오기 위해 사용된다.
+폼 요소는 사용자로부터 데이터를 입력받는 역할을 하는 HTML요소로, 
+예를 들어 텍스트 입력필드<input type="text">, 체크박스<input type="checkbox">, 
+라디오버튼 <input type="radio">, 셀렉트 박스<select> 등이 있다.
+
+폼 요소에 사용자가 입력한 값을 가져와야할 때, 이벤트 핸드러 함수에서 e.target.value를 사용하여 
+값을 가져올 수 있다.
+
+일반적으로 input이벤트나 change이벤트와 함께 사용된다.
+
+예를 들어 텍스트 입력 필드에 사용자가 이름을 입력하는 경우 input 이벤트 핸들러에서
+e.target.value를 사용하여 입력된 이름을 얻을 수 있다. 이 값을 변수에 저장하거나 다른 처리에 사용할 수 있다.
+
+```js
+function handleInputChange(event){
+    let userInput = event.target.value
+}
+```
+
+### e.target.value와 document.querySelector의 차이점
+사용목적
+document.querySelector: 요소 자체를 선택하기 위해 사용
+e.target.value: 이벤트 핸들러 함수에서 이벤트가 발생한 요소의 값을 가져오기 위해 사용된다.
