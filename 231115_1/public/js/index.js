@@ -13,6 +13,7 @@ function addComment(){
     
         commentList.appendChild(newComment)
         userInput.value = ""
+
     }
 }
 
