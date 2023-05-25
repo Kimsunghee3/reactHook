@@ -1,3 +1,7 @@
+const moment = require("moment")
+const today = moment()
+console.log(today.format())
+
 document.getElementById("commentBtn").addEventListener("click", addComment)
 
 function addComment(){
