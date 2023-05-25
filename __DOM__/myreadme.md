@@ -533,3 +533,92 @@ document.querySelector는 요소를 선택하고 그 값을 가져오는 두 단
 => document.querySelector와 e.target.value 모두 값의 획득에 사용될 수 있지만, document.querySelector는 `요소 선택`에
 더 중점을 두고 있고, e.target.value는 이벤트 핸들러 함수 내에서 이벤트가 발생한 `요소의 값`을 가져오는 데 특화되어 있다.
 
+
+### setAttribute 요소에 속성을 추가하거나 수정해주는 메서드
+js에서 사용되는 메서드로 HTML요소에 속성(attribute)을 추가 또는 수정할 수 있다.
+해당 메서드는 Element객체의 메서드로 사용되며, Element는 html요소를 나타내는 
+자바스크립트 객체이다.
+
+setAttribute메서드는 두개의 매개변수를받는다.
+첫번째 매개변수는 속성의 이름이다.
+두번째 매개변수는 해당 속성에 할당할 값이다.
+
+```js
+const divElement = document.createElement("div")
+divElement.setAttribute("id", "myDiv")
+```
+위의 코드를 실행하면 아래와 같은 HTML요소가 생성된다.
+```html
+<div id="myDiv"></div>
+```
+
+### 이미 존재하는 속성을 수정할 경우
+```js
+const element = document.getElementById('myElement')
+// class속성의 값을 newClass로 변경한다.
+element.setAttribute("class", "newClass")
+```
+
+### switch 조건문
+if...else문의 조건식이 반드시 불리언 값으로 평가되는 방면, switch문의 표현식은 불리언 값보다는
+문자열, 숫자 값인 경우가 많다. switch문은 논리적 참, 거짓보다는 다양한 상황(case)에 따라 실행할 코드 블록을 결정할 때 사용한다.
+
+> 기본문법
+```js
+// switch문의 condition을 평가하여 그 값과 일치하는 표현식을 갖는 case문으로 실행순서가 이동된다.
+switch(condition){
+    // condition의 값이 value1인 경우 statement1을 실행
+    case value1:
+        array1
+        break;
+    // condition의 값이 value2인 경우 statement2를 실행
+    case value2:
+        array2
+        break;
+        ...
+    // 그 어느 것도 아니라면 default가 적용되어 statement3을 실행
+    default:
+        statement3;
+}
+```
+=> 조건이 일치하여 break를 만나면 그 이후는 비교하지 않으며 switch문이 종료된다.
+default문은 switch문의 가장 마지막에 위치하므로 default문의 실행이 종료되면 switch문을 빠져나간다. 따라서 break를 생략해준다. default는 선택사항이다.
+
+```js
+const month = prompt("월을 입력하세요")
+const season 
+
+// parseInt: 입력된 값을 정수로 변환해준다.
+switch(parseInt(month)){
+    case 12:
+    case 1:
+    case 2:
+        season = "겨울"
+        break;
+
+    case 3:
+    case 4:
+    case 5:
+        season = "봄"
+        break;
+
+    case 6:
+    case 7:
+    case 8:
+        season = "여름"
+        break;
+
+    case 9:
+    case 10: 
+    case 11: 
+        season = "가을"
+        break;
+
+    // 유효하지 않은 월이 입력된 경우에 실행된다.
+    default:
+        season = "올바른 월을 입력하세요."
+        break;
+}
+
+console.log("입력한 월은" + season + "입니다.")
+```
