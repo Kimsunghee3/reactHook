@@ -88,4 +88,10 @@ console.log(pop)
 
 
 ### splice 배열요소 추가 삭제
-Array.prototype.splice()메서드는 배열의 특정 위치에
+Array.prototype.splice()메서드는 배열의 특정 위치에 배열요소를 추가하거나 삭제하는데 사용한다.
+리턴 값은 삭제한 배열 요소이다. 삭제한 요소가 없을 경우 빈 배열을 반환한다.
+```js
+const arr = [1,2,3]
+// 배열에 추가될 요소들
+arr.splice(a,b,c)
+```
