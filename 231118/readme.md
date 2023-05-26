@@ -88,3 +88,4 @@ console.log(pop)
 
 
 ### splice 배열요소 추가 삭제
+Array.prototype.splice()메서드는 배열의 특정 위치에
